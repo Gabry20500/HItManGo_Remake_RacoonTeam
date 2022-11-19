@@ -5,7 +5,8 @@
 
 * Using Unity Version: 2021.3.11f 
 
-    Link for download : [Click here](https://unity3d.com/unity/whats-new/2021.3.11)
+    Link for UnityHub download : [Click here](https://unity3d.com/get-unity/download)
+    Link for Unity version download : [Click here](https://unity3d.com/unity/whats-new/2021.3.11)
 
 * Naming convention
     - Versioning: EX. 1.0 (first number is the feature ended, second number in wip feature).
