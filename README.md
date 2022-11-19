@@ -7,7 +7,7 @@
 
     Link for download : [Click here](https://unity3d.com/unity/whats-new/2021.3.11)
 
-* Nomenclatura
+* Naming convention
     - Versioning: EX. 1.0 (first number is the feature ended, second number in wip feature).
 
     - File Name:
@@ -25,4 +25,11 @@
         - Normal
 
 Complete name: Ex Sprite = "sp_playButton_v1.0"
+
+* GIT Branch naming convention
+    - main and develop
+    - Branch for different sector:
+        - 3DArt => Different folders with all the GameObject
+        - 2DArt => Different folders with all the Sprite
+        - GameDesign => In this branch designers can test the feature
 
