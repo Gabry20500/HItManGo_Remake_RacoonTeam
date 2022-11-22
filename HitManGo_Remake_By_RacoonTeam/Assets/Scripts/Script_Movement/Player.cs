@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
         {
             Vector3 nodeDir = node.position - transform.position;
             Vector2 nodeDir2D = new Vector2(nodeDir.x, nodeDir.z);
-            if (Vector2.Dot(nodeDir2D, direction) > 0.8f)
+            if (Vector2.Dot(nodeDir2D, direction) > 0.9f)
             {
                 currentNode = node;
                 transform.position = currentNode.position;
