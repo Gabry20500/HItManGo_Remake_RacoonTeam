@@ -1,44 +1,43 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class NodesPathFinding : MonoBehaviour
+public class NodesPathFinding
 {
-    public Node startNode;
-    public Node destinationNode;
+	public List<Node> Depth_First_Search(Node start, Node end)
+	{
+		Stack<Node> work = new Stack<Node>();
+		List<Node> visited = new List<Node>();
 
+		work.Push(start);
+		visited.Add(start);
 
-    private List<Node> alreadyCrossed;
+		start.history = new List<Node>();
 
-    public List<Node> bestPath;
-    private List<Node> currentPath;
+		while (work.Count > 0)
+		{
 
+			Node current = work.Pop();
+			if (current == end)
+			{
+				List<Node> result = current.history;
+				result.Add(current);
+				return result;
+			}
+			else
+			{
+				for (int i = 0; i < current.linkedNodes.Count; i++)
+				{
 
-
-    public void FindPath()
-    {
-        alreadyCrossed.Add(startNode);
-
-    }
-
-    public void PathStep()
-    {
-
-    }
-
-
-
-    public bool IsAlreadyCrossed(Node currentNode)
-    {
-        foreach(Node node in alreadyCrossed)
-        {
-            if (currentNode == node)
-            {
-                return true;
-            }
-            else continue;
-        }
-
-        return false;
-    }
+					Node currentChild = current.linkedNodes[i];
+					if (!visited.Contains(currentChild))
+					{
+						work.Push(currentChild);
+						visited.Add(currentChild);
+						currentChild.history = new List<Node>(current.history);
+						currentChild.history.Add(current);
+					}
+				}
+			}
+		}
+		return null;
+	}
 }

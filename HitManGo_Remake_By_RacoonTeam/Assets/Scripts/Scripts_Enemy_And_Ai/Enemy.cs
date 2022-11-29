@@ -1,31 +1,27 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    [SerializeField] public Node currentNode;
+    [SerializeField] public List<Node> pathToDestination;
+    [SerializeField] public Node destinationNode;
+
     public bool canMove = true;
-    [SerializeField] private Node currentNode;
 
-    [SerializeField] LevelManager lvlManager;
-
-    public void Move(Vector2 direction)
+    public void Move()
     {
-        if (canMove)
+        if (canMove && currentNode != destinationNode)
         {
             canMove = false;
-            foreach (Node node in currentNode.linkedNodes)
-            {
-                Vector3 nodeDir = node.position - transform.position;
-                Vector2 nodeDir2D = new Vector2(nodeDir.x, nodeDir.z);
-                if (Vector2.Dot(nodeDir2D, direction) > 0.9f)
-                {
-                    currentNode = node;
-                    StartCoroutine(Animation(currentNode.position));
-                }
-            }
-            StartCoroutine(WaitForSec(1f));
+            Node nextNode = pathToDestination[0];
+            pathToDestination.Remove(nextNode);              
+            StartCoroutine(Animation(nextNode.position));
+            currentNode = nextNode;
         }
     }
+
 
     private IEnumerator Animation(Vector3 destination)
     {
@@ -39,7 +35,7 @@ public class Player : MonoBehaviour
         yield return StartCoroutine(goEndPos(midPos, endPos));
 
         transform.position = endPos;
-        
+        canMove = true;
         yield return null;
     }
 
@@ -51,13 +47,13 @@ public class Player : MonoBehaviour
         while (elapsed < duration)
         {
             float perc = elapsed / duration;
-            
+
             transform.position = Vector3.Lerp(startPos, midPos, perc);
             elapsed += Time.deltaTime;
             yield return null;
         }
     }
-    
+
     private IEnumerator goEndPos(Vector3 midPos, Vector3 endPos)
     {
         float elapsed = 0f;
@@ -71,14 +67,5 @@ public class Player : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-    }
-
-    private IEnumerator WaitForSec(float s)
-    {
-
-        yield return new WaitForSeconds(s);
-        lvlManager.UpdateLevel();
-        yield return new WaitForSeconds(s);
-        canMove = true;
     }
 }
