@@ -8,15 +8,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] public List<Node> pathToDestination;
     [SerializeField] public Node destinationNode;
 
-    public bool canMove = true;
-
+    public bool inMovement = false;
     public void Move()
     {
-        if (canMove && currentNode != destinationNode)
+        if (currentNode != destinationNode)
         {
-            canMove = false;
+            inMovement = true;
             Node nextNode = pathToDestination[0];
-            pathToDestination.Remove(nextNode);              
+            pathToDestination.Remove(nextNode);
             StartCoroutine(Animation(nextNode.position));
             currentNode = nextNode;
         }
@@ -35,7 +34,7 @@ public class Enemy : MonoBehaviour
         yield return StartCoroutine(goEndPos(midPos, endPos));
 
         transform.position = endPos;
-        canMove = true;
+        inMovement = false;
         yield return null;
     }
 

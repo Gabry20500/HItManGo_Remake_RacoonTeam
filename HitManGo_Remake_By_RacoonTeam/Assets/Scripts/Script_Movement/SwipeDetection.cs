@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class SwipeDetection : MonoBehaviour
 {
+    public delegate void SwipeDetected(Vector2 direction);
+    public event SwipeDetected OnSwipeDetected;
+
+
     [SerializeField] float minimumDistance = 0.2f;
     [SerializeField] float maximumTime = 1.0f;
   
@@ -58,7 +62,7 @@ public class SwipeDetection : MonoBehaviour
             Debug.DrawLine(startPosition, endPosition, Color.gray, 1.0f);
             Vector3 direction = endPosition - startPosition;
             Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-            player.Move(direction2D);
+            OnSwipeDetected(direction);
         }
     }
 

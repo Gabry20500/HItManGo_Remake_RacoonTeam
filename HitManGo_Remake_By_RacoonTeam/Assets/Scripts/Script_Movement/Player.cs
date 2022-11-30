@@ -7,23 +7,37 @@ public class Player : MonoBehaviour
     [SerializeField] private Node currentNode;
 
     [SerializeField] LevelManager lvlManager;
+    [SerializeField] SwipeDetection swipeDetecter;
 
+    private void Awake()
+    {
+        lvlManager = FindObjectOfType<LevelManager>();
+        swipeDetecter = FindObjectOfType<SwipeDetection>();
+    }
+
+    private void OnEnable()
+    {
+        swipeDetecter.OnSwipeDetected += Move;
+    }
     public void Move(Vector2 direction)
     {
         if (canMove)
         {
             canMove = false;
+            swipeDetecter.OnSwipeDetected -= Move;  
             foreach (Node node in currentNode.linkedNodes)
             {
                 Vector3 nodeDir = node.position - transform.position;
                 Vector2 nodeDir2D = new Vector2(nodeDir.x, nodeDir.z);
-                if (Vector2.Dot(nodeDir2D, direction) > 0.9f)
+                if (Vector2.Dot(nodeDir2D, direction) > 0.85f)
                 {
                     currentNode = node;
                     StartCoroutine(Animation(currentNode.position));
                 }
             }
-            StartCoroutine(WaitForSec(1f));
+            lvlManager.UpdateLevel();
+            StartCoroutine(Wait(0.5f));
+            canMove = true;
         }
     }
 
@@ -73,12 +87,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitForSec(float s)
+    private IEnumerator Wait(float time)
     {
 
-        yield return new WaitForSeconds(s);
-        lvlManager.UpdateLevel();
-        yield return new WaitForSeconds(s);
-        canMove = true;
+        yield return new WaitForSeconds(time);
     }
 }
