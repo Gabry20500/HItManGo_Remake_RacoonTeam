@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -18,17 +19,36 @@ public class LevelManager : MonoBehaviour
     }
 
     public void UpdateLevel()
-    { 
-        StartCoroutine(MoveAllEnemies());
-    }
-
-    public IEnumerator MoveAllEnemies()
     {
         foreach (Enemy enemy in enemyInLevel)
         {
             enemy.Move();
         }
+        StartCoroutine(AllEnemyEnded());
+    }
+
+    private IEnumerator AllEnemyEnded()
+    {
+        yield return StartCoroutine(CeckEnemy());
+
+        playerRef.canMove = true;
         swipeDetecter.OnSwipeDetected += playerRef.Move;
-        yield return null;
+    }
+
+    private IEnumerator CeckEnemy()
+    {
+        uint i = 0;
+        do
+        {
+            i = 0;
+            foreach (Enemy enemy in enemyInLevel)
+            {
+                if (enemy.inMovement)
+                {
+                    i++;
+                }
+            }
+            yield return null;
+        } while (i > 0); 
     }
 }

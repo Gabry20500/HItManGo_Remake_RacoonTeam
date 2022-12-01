@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Node currentNode;
     [SerializeField] public List<Node> pathToDestination;
     [SerializeField] public Node destinationNode;
-
     public bool inMovement = false;
+    
     public void Move()
     {
         if (currentNode != destinationNode)
@@ -66,5 +66,11 @@ public class Enemy : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+    }
+    
+    private IEnumerator Wait(float time)
+    {
+
+        yield return new WaitForSeconds(time);
     }
 }

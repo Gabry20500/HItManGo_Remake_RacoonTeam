@@ -35,9 +35,8 @@ public class Player : MonoBehaviour
                     StartCoroutine(Animation(currentNode.position));
                 }
             }
-            lvlManager.UpdateLevel();
-            StartCoroutine(Wait(0.5f));
-            canMove = true;
+            //lvlManager.UpdateLevel();
+            StartCoroutine(Wait(1f));
         }
     }
 
@@ -89,7 +88,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator Wait(float time)
     {
-
         yield return new WaitForSeconds(time);
+        lvlManager.UpdateLevel();
     }
 }
