@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Animation(Vector3 destination)
     {
+        Vector3 targetDirection = destination - transform.position;
+        Quaternion buffer = Quaternion.LookRotation(targetDirection);
+        transform.rotation = new Quaternion(transform.rotation.x, buffer.y, transform.rotation.z, buffer.w);
+
         Vector3 startPos = transform.position;
         Vector3 endPos = new Vector3(destination.x, transform.position.y, destination.z);
 
