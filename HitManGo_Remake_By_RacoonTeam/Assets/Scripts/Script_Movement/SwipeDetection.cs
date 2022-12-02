@@ -21,7 +21,7 @@ public class SwipeDetection : MonoBehaviour
     Vector3 lastDirection;
     [SerializeField] Player player;
 
-
+    [SerializeField] GameObject a;
 
 
     private void Awake()
@@ -62,7 +62,18 @@ public class SwipeDetection : MonoBehaviour
             Debug.DrawLine(startPosition, endPosition, Color.gray, 1.0f);
             Vector3 direction = endPosition - startPosition;
             Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-            OnSwipeDetected(direction);
+
+            var ray = new Ray(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward);
+            RaycastHit hit;
+            
+            if(Physics.Raycast(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward, out hit, Mathf.Infinity))
+            {
+                Instantiate(a, hit.point, Quaternion.identity);
+                if ( hit.collider.CompareTag("Player"))
+                {
+                    OnSwipeDetected(direction);
+                }
+            }
         }
     }
 
