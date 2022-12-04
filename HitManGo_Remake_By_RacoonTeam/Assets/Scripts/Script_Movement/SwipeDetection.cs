@@ -1,9 +1,12 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class SwipeDetection : MonoBehaviour
 {
+    public delegate void SwipeDetected(Vector2 direction);
+    public event SwipeDetected OnSwipeDetected;
+
+
     [SerializeField] float minimumDistance = 0.2f;
     [SerializeField] float maximumTime = 1.0f;
   
@@ -18,7 +21,7 @@ public class SwipeDetection : MonoBehaviour
     Vector3 lastDirection;
     [SerializeField] Player player;
 
-
+    [SerializeField] GameObject a;
 
 
     private void Awake()
@@ -59,7 +62,18 @@ public class SwipeDetection : MonoBehaviour
             Debug.DrawLine(startPosition, endPosition, Color.gray, 1.0f);
             Vector3 direction = endPosition - startPosition;
             Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-            player.Move(direction2D);
+
+            var ray = new Ray(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward);
+            RaycastHit hit;
+            
+            if(Physics.Raycast(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward, out hit, Mathf.Infinity))
+            {
+                Instantiate(a, hit.point, Quaternion.identity);
+                if ( hit.collider.CompareTag("Player"))
+                {
+                    OnSwipeDetected(direction);
+                }
+            }
         }
     }
 

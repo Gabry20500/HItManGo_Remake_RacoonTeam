@@ -1,47 +1,33 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public bool canMove = true;
-    [SerializeField] private Node currentNode;
-
-    [SerializeField] LevelManager lvlManager;
-    [SerializeField] SwipeDetection swipeDetecter;
-
-    private void Awake()
+    [SerializeField] public Node currentNode;
+    [SerializeField] public List<Node> pathToDestination;
+    [SerializeField] public Node destinationNode;
+    public bool inMovement = false;
+    
+    public void Move()
     {
-        lvlManager = FindObjectOfType<LevelManager>();
-        swipeDetecter = FindObjectOfType<SwipeDetection>();
-    }
-
-    private void OnEnable()
-    {
-        swipeDetecter.OnSwipeDetected += Move;
-    }
-    public void Move(Vector2 direction)
-    {
-        if (canMove)
+        if (currentNode != destinationNode)
         {
-            canMove = false;
-            swipeDetecter.OnSwipeDetected -= Move;  
-            foreach (Node node in currentNode.linkedNodes)
-            {
-                Vector3 nodeDir = node.position - transform.position;
-                Vector2 nodeDir2D = new Vector2(nodeDir.x, nodeDir.z);
-                if (Vector2.Dot(nodeDir2D, direction) > 0.85f)
-                {
-                    currentNode = node;
-                    StartCoroutine(Animation(currentNode.position));
-                }
-            }
-            //lvlManager.UpdateLevel();
-            StartCoroutine(Wait(1f));
+            inMovement = true;
+            Node nextNode = pathToDestination[0];
+            pathToDestination.Remove(nextNode);
+            StartCoroutine(Animation(nextNode.position));
+            currentNode = nextNode;
         }
     }
 
+
     private IEnumerator Animation(Vector3 destination)
     {
+        Vector3 targetDirection = destination - transform.position;
+        Quaternion buffer = Quaternion.LookRotation(targetDirection);
+        transform.rotation = new Quaternion(transform.rotation.x, buffer.y, transform.rotation.z, buffer.w);
+
         Vector3 startPos = transform.position;
         Vector3 endPos = new Vector3(destination.x, transform.position.y, destination.z);
 
@@ -52,7 +38,7 @@ public class Player : MonoBehaviour
         yield return StartCoroutine(goEndPos(midPos, endPos));
 
         transform.position = endPos;
-        
+        inMovement = false;
         yield return null;
     }
 
@@ -64,13 +50,13 @@ public class Player : MonoBehaviour
         while (elapsed < duration)
         {
             float perc = elapsed / duration;
-            
+
             transform.position = Vector3.Lerp(startPos, midPos, perc);
             elapsed += Time.deltaTime;
             yield return null;
         }
     }
-    
+
     private IEnumerator goEndPos(Vector3 midPos, Vector3 endPos)
     {
         float elapsed = 0f;
@@ -85,10 +71,10 @@ public class Player : MonoBehaviour
             yield return null;
         }
     }
-
+    
     private IEnumerator Wait(float time)
     {
+
         yield return new WaitForSeconds(time);
-        lvlManager.UpdateLevel();
     }
 }
