@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -90,5 +91,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         lvlManager.UpdateLevel();
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("CIAO");
     }
 }

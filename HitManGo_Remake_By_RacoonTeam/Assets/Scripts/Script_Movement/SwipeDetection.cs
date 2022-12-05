@@ -56,26 +56,44 @@ public class SwipeDetection : MonoBehaviour
 
     private void DetectSwipe()
     {
+        Debug.Log(startPosition);
         if(Vector3.Distance(startPosition, endPosition) >= minimumDistance && 
             endTime - startTime <= maximumTime)
         {
-            Debug.DrawLine(startPosition, endPosition, Color.gray, 1.0f);
+            Debug.DrawLine(startPosition, endPosition, Color.yellow, 100.0f);
             Vector3 direction = endPosition - startPosition;
-            Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-
-            var ray = new Ray(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward);
-            RaycastHit hit;
             
-            if(Physics.Raycast(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward, out hit, Mathf.Infinity))
+            Ray ray = Camera.main.ScreenPointToRay(startPosition);
+            RaycastHit hit;
+
+            
+            if(Physics.Raycast(ray, out hit))
             {
+                //Debug.Log($"Player hit");
                 Instantiate(a, hit.point, Quaternion.identity);
                 if ( hit.collider.CompareTag("Player"))
                 {
+                    //Debug.Log($"Player hit");
                     OnSwipeDetected(direction);
                 }
             }
+            Debug.DrawRay(startPosition, Camera.main.transform.forward, Color.red);
         }
     }
+    
+    
+    
+    // var ray = new Ray(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward);
+    //             RaycastHit hit;
+    //             
+    //             if(Physics.Raycast(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward, out hit, Mathf.Infinity))
+    //             {
+    //                 Instantiate(a, hit.point, Quaternion.identity);
+    //                 if ( hit.collider.CompareTag("Player"))
+    //                 {
+    //                     OnSwipeDetected(direction);
+    //                 }
+    //             }
 
     //private void SwipeDirection(Vector2 direction)
     //{
