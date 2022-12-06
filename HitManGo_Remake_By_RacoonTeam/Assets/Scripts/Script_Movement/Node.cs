@@ -13,15 +13,16 @@ public class Node : MonoBehaviour
     private void Awake()
     {
         position = transform.position;
+        myButton = gameObject.transform.GetChild(0).GetComponent<SelectableButton>();
     }
 
     public void ActivateMyButton()
     {
-        myButton.enabled = true;
+        myButton.gameObject.SetActive(true);
     }
 
     public void DisableMyButton()
     {
-        myButton.enabled = false;
+        myButton.gameObject.SetActive(false);
     }
 }

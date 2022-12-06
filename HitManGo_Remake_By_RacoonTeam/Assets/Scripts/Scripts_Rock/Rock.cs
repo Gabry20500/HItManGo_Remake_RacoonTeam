@@ -20,7 +20,7 @@ public class Rock : MonoBehaviour
             {
                 node.ActivateMyButton();
             }
+            this.gameObject.SetActive(false);
         }
-        this.gameObject.SetActive(false);
     }
 }

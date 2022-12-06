@@ -25,6 +25,7 @@ public class SwipeDetection : MonoBehaviour
     private void Awake()
     {
         inputManager = FindObjectOfType<InputManager>();
+        player = FindObjectOfType<Player>();
     }
 
     private void OnEnable()
