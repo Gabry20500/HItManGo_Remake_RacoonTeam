@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public bool canMove = true;
-    [SerializeField] private Node currentNode;
+    [SerializeField] public Node currentNode;
 
     [SerializeField] LevelManager lvlManager;
     [SerializeField] SwipeDetection swipeDetecter;
@@ -29,13 +31,12 @@ public class Player : MonoBehaviour
             {
                 Vector3 nodeDir = node.position - transform.position;
                 Vector2 nodeDir2D = new Vector2(nodeDir.x, nodeDir.z);
-                if (Vector2.Dot(nodeDir2D, direction) > 0.85f)
+                if (Vector2.Dot(nodeDir2D, direction) > 0.70f)
                 {
                     currentNode = node;
                     StartCoroutine(Animation(currentNode.position));
                 }
             }
-            //lvlManager.UpdateLevel();
             StartCoroutine(Wait(1f));
         }
     }
@@ -90,5 +91,15 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         lvlManager.UpdateLevel();
+    }
+
+    public void Death()
+    {
+        SceneManager.LoadScene("LV_0");
+    }
+
+    public void TrhowRock(Node destination)
+    {
+
     }
 }

@@ -8,7 +8,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] public List<Node> pathToDestination;
     [SerializeField] public Node destinationNode;
     public bool inMovement = false;
-    
+
+
+
+    [SerializeField] LevelManager lvlManager;
+
+
+    private void Awake()
+    {
+        lvlManager = FindObjectOfType<LevelManager>();
+    }
     public void Move()
     {
         if (currentNode != destinationNode)
@@ -74,7 +83,31 @@ public class Enemy : MonoBehaviour
     
     private IEnumerator Wait(float time)
     {
-
         yield return new WaitForSeconds(time);
+    }
+
+    private IEnumerator KillPlayer(Collider other)
+    {
+        yield return new WaitForSeconds(2f);
+        other.GetComponent<Player>().Death();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {        
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.enabled = false;
+            StartCoroutine(Animation(other.GetComponent<Player>().currentNode.position));
+            StartCoroutine(KillPlayer(other));
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            lvlManager.enemyInLevel.Remove(this);
+            Destroy(this.gameObject);
+        }
     }
 }
