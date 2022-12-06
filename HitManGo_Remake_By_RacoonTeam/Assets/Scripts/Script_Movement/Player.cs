@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public bool canMove = true;
-    [SerializeField] private Node currentNode;
+    [SerializeField] public Node currentNode;
 
     [SerializeField] LevelManager lvlManager;
     [SerializeField] SwipeDetection swipeDetecter;
@@ -93,8 +94,13 @@ public class Player : MonoBehaviour
         lvlManager.UpdateLevel();
     }
 
-    private void OnMouseDown()
+    public void Death()
     {
-        Debug.Log("CIAO");
+        SceneManager.LoadScene("LV_0");
+    }
+
+    public void TrhowRock(Node destination)
+    {
+
     }
 }

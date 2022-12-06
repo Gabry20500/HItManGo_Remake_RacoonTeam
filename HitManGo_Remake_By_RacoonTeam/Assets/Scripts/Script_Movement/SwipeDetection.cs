@@ -21,8 +21,6 @@ public class SwipeDetection : MonoBehaviour
     Vector3 lastDirection;
     [SerializeField] Player player;
 
-    [SerializeField] GameObject a;
-
 
     private void Awake()
     {
@@ -55,71 +53,23 @@ public class SwipeDetection : MonoBehaviour
     }
 
     private void DetectSwipe()
-    {
-        Debug.Log(startPosition);
+    {       
         if(Vector3.Distance(startPosition, endPosition) >= minimumDistance && 
             endTime - startTime <= maximumTime)
         {
-            Debug.DrawLine(startPosition, endPosition, Color.yellow, 100.0f);
             Vector3 direction = endPosition - startPosition;
-            
+           
             Ray ray = Camera.main.ScreenPointToRay(startPosition);
             RaycastHit hit;
 
-            
             if(Physics.Raycast(ray, out hit))
             {
-                //Debug.Log($"Player hit");
-                Instantiate(a, hit.point, Quaternion.identity);
                 if ( hit.collider.CompareTag("Player"))
                 {
-                    //Debug.Log($"Player hit");
                     OnSwipeDetected(direction);
                 }
             }
-            Debug.DrawRay(startPosition, Camera.main.transform.forward, Color.red);
         }
     }
-    
-    
-    
-    // var ray = new Ray(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward);
-    //             RaycastHit hit;
-    //             
-    //             if(Physics.Raycast(Camera.main.ScreenToViewportPoint(startPosition), Camera.main.transform.forward, out hit, Mathf.Infinity))
-    //             {
-    //                 Instantiate(a, hit.point, Quaternion.identity);
-    //                 if ( hit.collider.CompareTag("Player"))
-    //                 {
-    //                     OnSwipeDetected(direction);
-    //                 }
-    //             }
-
-    //private void SwipeDirection(Vector2 direction)
-    //{
-        //lastDirection = new Vector3(direction.x, 0.0f, direction.y);
-        //player.transform.forward = lastDirection;
-
-        //Debug.Log("Swipe detected");
-        //if(Vector2.Dot(Vector2.up, direction) > directionThreshold)
-        //{
-        //    //Debug.Log("Swipe straight");
-        //}
-        //else if (Vector2.Dot(new Vector2(0.50f, 0.50f), direction) > directionThreshold)
-        //{
-        //    Debug.Log("Swipe light right");
-        //}
-        //else if(Vector2.Dot(new Vector2(0.75f, 0.25f), direction) > directionThreshold)
-        //{
-        //    Debug.Log("Swipe full right(dux)");
-        //}
-        //else if(Vector2.Dot(new Vector2(-0.50f, -0.50f), direction) > directionThreshold)
-        //{
-        //    Debug.Log("Swipe light left");
-        //}
-        //else if(Vector2.Dot(new Vector2(-0.75f, -0.25f), direction) > directionThreshold)
-        //{
-        //    Debug.Log("Swipe full left");
-        //}
-    //}
+        
 }

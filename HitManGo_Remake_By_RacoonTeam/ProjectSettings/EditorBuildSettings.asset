@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LV_0.unity
+    guid: 92242464e74e1754480d0737f6da75b7
+  - enabled: 1
+    path: Assets/Scenes/OverWorld.unity
+    guid: c850ee8c3b14cc8459e7e186857cf567
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 9ce6a35cfa35a2b468311e2edb42613f,
       type: 2}

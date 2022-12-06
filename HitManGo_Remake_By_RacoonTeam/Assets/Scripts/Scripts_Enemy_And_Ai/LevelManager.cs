@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,9 +10,15 @@ public class LevelManager : MonoBehaviour
 
     public List<Enemy> enemyInLevel;
     public Node[] nodesInLevel;
+    [SerializeField] Node lastNode;
 
     private void Awake()
     {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach(Enemy e in enemies)
+        {
+            enemyInLevel.Add(e);
+        }
         playerRef = FindObjectOfType<Player>();
         swipeDetecter = FindObjectOfType<SwipeDetection>();
         nodesInLevel = FindObjectsOfType<Node>();       
@@ -25,6 +31,15 @@ public class LevelManager : MonoBehaviour
             enemy.Move();
         }
         StartCoroutine(AllEnemyEnded());
+        if(playerRef.currentNode == lastNode)
+        {
+            LevelCompleted();
+        }
+    }
+
+    private void LevelCompleted()
+    {
+        SceneManager.LoadScene("OverWorld");
     }
 
     private IEnumerator AllEnemyEnded()
@@ -50,5 +65,14 @@ public class LevelManager : MonoBehaviour
             }
             yield return null;
         } while (i > 0); 
+    }
+
+
+    public void DisableAllButton()
+    {
+        foreach(Node n in nodesInLevel)
+        {
+            n.DisableMyButton();
+        }
     }
 }
