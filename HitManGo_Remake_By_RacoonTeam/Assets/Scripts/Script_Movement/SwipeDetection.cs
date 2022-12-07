@@ -18,14 +18,10 @@ public class SwipeDetection : MonoBehaviour
     private float endTime;
     [SerializeField, Range(0.0f, 1.0f)] private float directionThreshold = 0.7f;
 
-    Vector3 lastDirection;
-    [SerializeField] Player player;
-
 
     private void Awake()
     {
         inputManager = FindObjectOfType<InputManager>();
-        player = FindObjectOfType<Player>();
     }
 
     private void OnEnable()
@@ -60,14 +56,22 @@ public class SwipeDetection : MonoBehaviour
         {
             Vector3 direction = endPosition - startPosition;
            
-            Ray ray = Camera.main.ScreenPointToRay(startPosition);
-            RaycastHit hit;
+            Ray startRay = Camera.main.ScreenPointToRay(startPosition);
+            Ray endRay = Camera.main.ScreenPointToRay(endPosition);
 
-            if(Physics.Raycast(ray, out hit))
+            RaycastHit startHit;
+            Physics.Raycast(startRay, out startHit);
+            RaycastHit endHit;
+            Physics.Raycast(endRay, out endHit);
+
+            Vector3 swipeDir = endHit.point - startHit.point;
+            Vector2 swipeDir2D = new Vector2(swipeDir.x, swipeDir.z);
+
+            if (startHit.collider != null)
             {
-                if ( hit.collider.CompareTag("Player"))
+                if (startHit.collider.CompareTag("Player"))
                 {
-                    OnSwipeDetected(direction);
+                    OnSwipeDetected(swipeDir2D);
                 }
             }
         }

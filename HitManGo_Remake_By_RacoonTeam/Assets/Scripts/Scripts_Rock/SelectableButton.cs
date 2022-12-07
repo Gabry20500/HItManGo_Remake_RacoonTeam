@@ -13,6 +13,7 @@ public class SelectableButton : MonoBehaviour
     {
         playerRef = FindObjectOfType<Player>();
         levelManager = FindObjectOfType<LevelManager>();
+        myNode = GetComponentInParent<Node>();
     }
 
 

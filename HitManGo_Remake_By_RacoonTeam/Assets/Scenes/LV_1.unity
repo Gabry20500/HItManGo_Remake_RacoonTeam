@@ -260,7 +260,7 @@ PrefabInstance:
     - target: {fileID: 8787247590205115560, guid: 5e9aede70142db1468082e834ce77233,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.24
+      value: -2.18
       objectReference: {fileID: 0}
     - target: {fileID: 8787247590205115560, guid: 5e9aede70142db1468082e834ce77233,
         type: 3}
@@ -270,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 8787247590205115560, guid: 5e9aede70142db1468082e834ce77233,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.78
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 8787247590205115560, guid: 5e9aede70142db1468082e834ce77233,
         type: 3}
@@ -317,6 +317,12 @@ PrefabInstance:
       propertyPath: currentNode
       value: 
       objectReference: {fileID: 1364708893}
+    - target: {fileID: 8787247590205115573, guid: 5e9aede70142db1468082e834ce77233,
+        type: 3}
+      propertyPath: flyingRockObj
+      value: 
+      objectReference: {fileID: 7284657334031900129, guid: a1c10b3d88afd504b9bd729f8b7bcab2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9aede70142db1468082e834ce77233, type: 3}
 --- !u!1001 &604914117

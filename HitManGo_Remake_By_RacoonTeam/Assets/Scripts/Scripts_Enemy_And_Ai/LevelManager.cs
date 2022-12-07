@@ -46,8 +46,10 @@ public class LevelManager : MonoBehaviour
     {
         yield return StartCoroutine(CeckEnemy());
 
-        playerRef.canMove = true;
-        swipeDetecter.OnSwipeDetected += playerRef.Move;
+        if (playerRef.rockState == false)
+        {
+            playerRef.EnableMovement();
+        }
     }
 
     private IEnumerator CeckEnemy()

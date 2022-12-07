@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public bool canMove = true;
+    public bool rockState = false;
+
     [SerializeField] public Node currentNode;
 
     [SerializeField] LevelManager lvlManager;
     [SerializeField] SwipeDetection swipeDetecter;
+
+
+    [SerializeField] GameObject flyingRockObj;
 
     private void Awake()
     {
@@ -25,13 +30,14 @@ public class Player : MonoBehaviour
     {
         if (canMove)
         {
-            canMove = false;
-            swipeDetecter.OnSwipeDetected -= Move;  
+            DisableMovement(); 
+
             foreach (Node node in currentNode.linkedNodes)
             {
                 Vector3 nodeDir = node.position - transform.position;
                 Vector2 nodeDir2D = new Vector2(nodeDir.x, nodeDir.z);
-                if (Vector2.Dot(nodeDir2D, direction) > 0.70f)
+
+                if (Vector2.Dot(nodeDir2D.normalized, direction.normalized) > 0.85f)
                 {
                     currentNode = node;
                     StartCoroutine(Animation(currentNode.position));
@@ -100,6 +106,25 @@ public class Player : MonoBehaviour
 
     public void TrhowRock(Node destination)
     {
+        GameObject rock = Instantiate(flyingRockObj, transform.position, Quaternion.identity);
+        rock.GetComponent<FlyingRock>().Init(destination);
+    }
 
+    public void EnableMovement()
+    {
+        canMove = true;
+        swipeDetecter.OnSwipeDetected += Move;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+        swipeDetecter.OnSwipeDetected -= Move;
+    }
+
+    public void ActivateRockState()
+    {
+        rockState = true;
+        canMove = false;
     }
 }
