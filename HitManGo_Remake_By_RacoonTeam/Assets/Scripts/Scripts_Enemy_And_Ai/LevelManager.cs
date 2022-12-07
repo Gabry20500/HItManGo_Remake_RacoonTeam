@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] Player playerRef;
+    public Player playerRef;
     [SerializeField] SwipeDetection swipeDetecter;
 
     public List<Enemy> enemyInLevel;

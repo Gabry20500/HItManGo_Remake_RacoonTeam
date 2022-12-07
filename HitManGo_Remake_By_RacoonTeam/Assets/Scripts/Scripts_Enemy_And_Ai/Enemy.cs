@@ -92,6 +92,16 @@ public class Enemy : MonoBehaviour
         other.GetComponent<Player>().Death();
     }
 
+    public void RotateTo(Node destination)
+    {
+        Vector3 targetDirection = destination.position - transform.position;
+        Quaternion buffer = Quaternion.LookRotation(targetDirection);
+        transform.rotation = new Quaternion(transform.rotation.x, buffer.y, transform.rotation.z, buffer.w);
+    }
+    
+    
+    
+    
     private void OnTriggerEnter(Collider other)
     {        
         if(other.gameObject.CompareTag("Player"))

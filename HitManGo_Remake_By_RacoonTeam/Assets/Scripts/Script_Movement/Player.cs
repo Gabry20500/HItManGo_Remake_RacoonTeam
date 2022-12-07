@@ -127,4 +127,10 @@ public class Player : MonoBehaviour
         rockState = true;
         canMove = false;
     }
+    
+    public void DisableRockState()
+    {
+        rockState = false;
+        EnableMovement();
+    }
 }

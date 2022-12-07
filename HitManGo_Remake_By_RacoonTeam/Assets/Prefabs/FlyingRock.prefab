@@ -211,4 +211,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwDestination: {fileID: 0}
-  triggerPlaneObj: {fileID: 0}
+  triggerPlaneObj: {fileID: 3549929839384931944, guid: 621380831f728f149abd13726cf35d85,
+    type: 3}

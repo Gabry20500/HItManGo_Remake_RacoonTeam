@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3380008108909850134}
   - component: {fileID: 4622196214859020}
   - component: {fileID: 316624847831325787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2986566047151480998}
   - component: {fileID: 2373743483183150069}
   - component: {fileID: 3819085999787768237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 5186879615394084140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -137.3, y: -42.8, z: 352.6}
-  m_LocalScale: {x: 42.17, y: 42.17, z: 42.17}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3380008108909850134}
@@ -182,7 +182,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.36, y: 1.21, z: 1.12}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2986566047151480998
 MonoBehaviour:

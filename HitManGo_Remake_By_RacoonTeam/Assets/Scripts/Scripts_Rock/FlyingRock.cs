@@ -35,6 +35,13 @@ public class FlyingRock : MonoBehaviour
         transform.position = endPos;
 
         yield return null;
+        Quaternion rotation = new Quaternion(0, 0, 0, 0);
+        
+        GameObject g =  Instantiate(triggerPlaneObj,new Vector3(endPos.x, endPos.y - 5, endPos.z), rotation);
+        g.GetComponent<TriggerPlane>().Init(throwDestination);
+        
+        Destroy(gameObject);
+        yield return null;
     }
 
     private IEnumerator goMidPos(Vector3 startPos, Vector3 midPos)
