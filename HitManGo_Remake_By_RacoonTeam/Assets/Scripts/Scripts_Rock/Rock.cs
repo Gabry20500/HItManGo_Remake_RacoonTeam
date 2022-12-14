@@ -4,7 +4,7 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     [SerializeField] List<Node> activableNodes;
-    [SerializeField] Player playerRef;
+    private Player playerRef;
 
 
     private void Awake()
@@ -17,6 +17,7 @@ public class Rock : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log($"Mannaia la puttana");
             playerRef.ActivateRockState();
 
             foreach (Node node in activableNodes)
