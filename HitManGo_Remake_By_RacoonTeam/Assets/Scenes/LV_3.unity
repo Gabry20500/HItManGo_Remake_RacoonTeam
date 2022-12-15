@@ -1258,11 +1258,6 @@ PrefabInstance:
       propertyPath: linkedNodes.Array.data[2]
       value: 
       objectReference: {fileID: 114871173}
-    - target: {fileID: 1260197289897930750, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
-        type: 3}
-      propertyPath: linkedNodes.Array.data[2]
-      value: 
-      objectReference: {fileID: 381947642}
     - target: {fileID: 3090924734672069177, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: m_Name
