@@ -6,6 +6,9 @@ public class SwipeDetection : MonoBehaviour
     public delegate void SwipeDetected(Vector2 direction);
     public event SwipeDetected OnSwipeDetected;
 
+    public delegate void SwipeDetectedPoints(Vector2 startPos, Vector2 endPos);
+    public event SwipeDetectedPoints OnSwipeDetectedPoints;
+
 
     [SerializeField] float minimumDistance = 0.2f;
     [SerializeField] float maximumTime = 1.0f;
@@ -72,6 +75,10 @@ public class SwipeDetection : MonoBehaviour
                 if (startHit.collider.CompareTag("Player"))
                 {
                     OnSwipeDetected(swipeDir2D);
+                }
+                else
+                {
+                    OnSwipeDetectedPoints(startPosition,endPosition);
                 }
             }
         }

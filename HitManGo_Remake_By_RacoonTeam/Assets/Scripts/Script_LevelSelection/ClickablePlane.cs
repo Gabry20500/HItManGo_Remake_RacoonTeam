@@ -1,27 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClickablePlane : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private bool unlocked = false;
+    [SerializeField] private string levelName;
 
     private void OnMouseDown()
     {
-        if (this.GetComponent<Rigidbody>().isKinematic == false)
+        if (unlocked == true)
         {
-            Debug.Log("ciao");
+            SceneManager.LoadScene(levelName);
         }
+    }
+
+    public void Unlock()
+    {
+        unlocked = true;
     }
 }

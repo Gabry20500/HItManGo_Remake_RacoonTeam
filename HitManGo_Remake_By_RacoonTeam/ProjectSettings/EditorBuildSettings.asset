@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Movment_Test.unity
+    path: 
     guid: 92242464e74e1754480d0737f6da75b7
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
@@ -14,6 +14,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelection.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
+  - enabled: 1
+    path: Assets/Scenes/LV_1.unity
+    guid: 00a57f0f357580f498613f97c4b46b78
+  - enabled: 1
+    path: Assets/Scenes/LV_2.unity
+    guid: 8b47691ae4ae3f94792553a79e6bc8dc
+  - enabled: 1
+    path: Assets/Scenes/LV_3.unity
+    guid: dd8a133d3a0628749a8a31b948e51bb6
+  - enabled: 1
+    path: Assets/Scenes/LV_4.unity
+    guid: 27b0d30d22a8d1f4583c2d503c4153bb
+  - enabled: 1
+    path: Assets/Scenes/LV_5.unity
+    guid: 842bd7fdc4c98784b9be4b27a6479515
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 9ce6a35cfa35a2b468311e2edb42613f,
       type: 2}

@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
 
     private void LevelCompleted()
     {
-        SceneManager.LoadScene("OverWorld");
+        SceneManager.LoadScene("LevelSelection");
     }
 
     private IEnumerator AllEnemyEnded()
