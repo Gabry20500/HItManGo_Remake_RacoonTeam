@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3330117343042646782}
   - component: {fileID: 1589750184387574495}
   - component: {fileID: 4001357416375845394}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 7284657334031900134}
   - component: {fileID: 7284657334031900135}
   - component: {fileID: 7284657334031900128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlyingRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

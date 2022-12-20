@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] int levelNum;
     public Player playerRef;
     [SerializeField] SwipeDetection swipeDetecter;
 
@@ -39,7 +40,10 @@ public class LevelManager : MonoBehaviour
 
     private void LevelCompleted()
     {
+        GameManager.instance.SetLastLevelCompleted(levelNum);
         SceneManager.LoadScene("LevelSelection");
+        GameManager.instance.buttons.SetActive(true);
+        GameManager.instance.UnlockLevelButton();
     }
 
     private IEnumerator AllEnemyEnded()

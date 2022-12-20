@@ -689,6 +689,11 @@ PrefabInstance:
       propertyPath: lastNode
       value: 
       objectReference: {fileID: 1693978756}
+    - target: {fileID: 4811831008968807488, guid: 93c78a3d74753ed4e91bef3a5fa19207,
+        type: 3}
+      propertyPath: levelNum
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4811831008968807489, guid: 93c78a3d74753ed4e91bef3a5fa19207,
         type: 3}
       propertyPath: m_RootOrder

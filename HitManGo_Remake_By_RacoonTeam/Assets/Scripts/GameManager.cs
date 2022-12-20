@@ -1,42 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] GameObject levelPawn;
+    public GameObject buttons;
 
-    public static GameManager instance;
-    private int lastLevelCompleted = 0;
-    private int currentLevel = 1;
-    public List<ClickablePlane> levelButtons;
+    [SerializeField] private int lastLevelCompleted = 0;
+    [SerializeField] private int maxLevelCompleted = 0;
+    [SerializeField] public List<ClickablePlane> levelButtons;
 
     private void Start()
     {
         UnlockLevelButton();
     }
 
-    public void LoadLevel(string sceneName)
+    public void LoadLevel(string levelName)
     {
-        
-        
+        buttons.SetActive(false);
+        SceneManager.LoadScene(levelName);
     }
 
-    public void ReloadLevelSelection()
+    public void SetLastLevelCompleted(int levelCompleted)
     {
-        
-    }
-
-    private void UnlockLevelButton()
-    {
-        for (int i = 0; i < levelButtons.Count; i++)
+        lastLevelCompleted = levelCompleted;
+        if(maxLevelCompleted < lastLevelCompleted)
         {
-            if (i == lastLevelCompleted)
-            {
-                levelButtons[i].Unlock();
-            }
+            maxLevelCompleted = lastLevelCompleted;
         }
-        StartCoroutine(Animation(levelPawn, levelButtons[lastLevelCompleted].transform.position));
+    }
+
+    public void UnlockLevelButton()
+    {   
+        StartCoroutine(Animation(levelPawn, levelButtons[maxLevelCompleted].transform.position));
+        
     }
 
 
@@ -52,6 +52,10 @@ public class GameManager : Singleton<GameManager>
         yield return StartCoroutine(goEndPos(toMove, midPos, endPos));
 
         toMove.transform.position = endPos;
+        for (int i = 0; i <= maxLevelCompleted; i++)
+        {
+            levelButtons[i].Unlock();
+        }
         yield return null;
     }
 
