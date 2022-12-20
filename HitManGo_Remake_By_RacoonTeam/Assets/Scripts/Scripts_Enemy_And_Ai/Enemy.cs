@@ -106,9 +106,20 @@ public class Enemy : MonoBehaviour
     {        
         if(other.gameObject.CompareTag("Player"))
         {
-            other.enabled = false;
-            StartCoroutine(Animation(other.GetComponent<Player>().currentNode.position));
-            StartCoroutine(KillPlayer(other));
+            bool flag = false;
+            foreach(Node node in currentNode.linkedNodes)
+            {
+                if(node == other.GetComponent<Player>().currentNode)
+                {
+                    flag = true;
+                }
+            }
+            if (flag)
+            {
+                other.enabled = false;
+                StartCoroutine(Animation(other.GetComponent<Player>().currentNode.position));
+                StartCoroutine(KillPlayer(other));
+            }
         }
     }
 
