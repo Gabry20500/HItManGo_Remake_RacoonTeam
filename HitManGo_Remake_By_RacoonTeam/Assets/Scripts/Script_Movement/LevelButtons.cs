@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class LevelPawn : MonoBehaviour
+public class LevelButtons : MonoBehaviour
 {
-    static LevelPawn instance = null;
+    static LevelButtons instance = null;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else if(instance != this)
+        else if (instance != this)
         {
             DestroyImmediate(this.gameObject);
         }

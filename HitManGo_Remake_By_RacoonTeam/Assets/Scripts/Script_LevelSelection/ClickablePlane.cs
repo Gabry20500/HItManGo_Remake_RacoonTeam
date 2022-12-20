@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ClickablePlane : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class ClickablePlane : MonoBehaviour
     {
         if (unlocked == true)
         {
-            SceneManager.LoadScene(levelName);
+            GameManager.instance.LoadLevel(levelName);
         }
     }
 

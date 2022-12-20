@@ -4,7 +4,7 @@ using UnityEngine;
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     //The Instance of class T available from everywhere
-    public static T Instance { get; private set; } = null;
+    public static T instance { get; private set; } = null;
 
     //Get and set are the equivalent of these methods.
     //public T GetInstance() { return Instance; }
@@ -24,15 +24,15 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Instance = null;
+        instance = null;
     }
 
     private void SetSingleInstance()
     {
         //There is already an instance
-        if (Instance == this)
+        if (instance == this)
             return;
-        else if (Instance != null)
+        else if (instance != null)
         {
             Destroy(gameObject);
             return;
@@ -45,11 +45,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         {
             Debug.LogError("Multiple instances of " + typeof(T).Name + " found");
             //Set this as instance. The others will be destroyed in their Awake
-            Instance = this as T;
+            instance = this as T;
         }
         else if(instances.Length == 1)//Only one instance of type T is found. Set the instance.
         {
-            Instance = instances[0];
+            instance = instances[0];
         }
         if (IsPersistent)
             DontDestroyOnLoad(gameObject);

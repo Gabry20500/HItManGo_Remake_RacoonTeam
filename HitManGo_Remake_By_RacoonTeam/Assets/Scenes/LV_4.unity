@@ -514,6 +514,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4811831008968807488, guid: 93c78a3d74753ed4e91bef3a5fa19207,
+        type: 3}
+      propertyPath: lastNode
+      value: 
+      objectReference: {fileID: 701214095}
+    - target: {fileID: 4811831008968807488, guid: 93c78a3d74753ed4e91bef3a5fa19207,
+        type: 3}
+      propertyPath: levelNum
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4811831008968807489, guid: 93c78a3d74753ed4e91bef3a5fa19207,
         type: 3}
       propertyPath: m_RootOrder
@@ -1709,12 +1719,12 @@ PrefabInstance:
         type: 3}
       propertyPath: linkedNodes.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1551685905}
     - target: {fileID: 1260197289897930750, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: linkedNodes.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1714816536}
     - target: {fileID: 1260197289897930750, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: linkedNodes.Array.data[2]
@@ -3384,7 +3394,7 @@ PrefabInstance:
         type: 3}
       propertyPath: linkedNodes.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 709692203}
     - target: {fileID: 3090924734672069177, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: m_Name
