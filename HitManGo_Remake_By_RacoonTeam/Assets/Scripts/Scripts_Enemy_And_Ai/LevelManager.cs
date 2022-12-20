@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] int levelNum;
+    public int levelNum;
     public Player playerRef;
     [SerializeField] SwipeDetection swipeDetecter;
 

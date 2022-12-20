@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        SceneManager.LoadScene("LV_1");
+        SceneManager.LoadScene($"LV_{lvlManager.levelNum}");
     }
 
     public void TrhowRock(Node destination)

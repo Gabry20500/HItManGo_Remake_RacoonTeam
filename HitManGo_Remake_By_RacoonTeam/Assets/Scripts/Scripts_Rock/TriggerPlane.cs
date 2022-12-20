@@ -24,7 +24,7 @@ public class TriggerPlane : MonoBehaviour
     private IEnumerator Animation()
     {
         float elapsed = 0f;
-        float duration = 1.5f;
+        float duration = 2f;
         
         
         while (elapsed < duration)
