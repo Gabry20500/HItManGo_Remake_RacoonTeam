@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] GameObject levelPawn;
+    [SerializeField] public GameObject linePrefab;
     public GameObject buttons;
 
     [SerializeField] private int lastLevelCompleted = 0;
     [SerializeField] private int maxLevelCompleted = 0;
     [SerializeField] public List<ClickablePlane> levelButtons;
+
 
     private void Start()
     {

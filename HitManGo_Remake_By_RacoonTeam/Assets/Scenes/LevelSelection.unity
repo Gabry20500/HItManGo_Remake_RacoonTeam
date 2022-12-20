@@ -850,6 +850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPersistent: 1
   levelPawn: {fileID: 1977279989}
+  linePrefab: {fileID: 927808370626256654, guid: d2cd01df462c23f498c1e75c0a5dc0cf,
+    type: 3}
   buttons: {fileID: 277160584}
   lastLevelCompleted: 0
   maxLevelCompleted: 0
