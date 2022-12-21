@@ -459,20 +459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 277160585}
     m_Modifications:
-    - target: {fileID: 719033203633139748, guid: 287eb2acf636cd046a976b48750d7de5,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 719033203633139750, guid: 287eb2acf636cd046a976b48750d7de5,
         type: 3}
       propertyPath: m_Name
       value: LvlButton1
-      objectReference: {fileID: 0}
-    - target: {fileID: 719033203633139751, guid: 287eb2acf636cd046a976b48750d7de5,
-        type: 3}
-      propertyPath: levelName
-      value: LV_1
       objectReference: {fileID: 0}
     - target: {fileID: 719033203633139801, guid: 287eb2acf636cd046a976b48750d7de5,
         type: 3}
@@ -529,11 +519,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 719033203633139803, guid: 287eb2acf636cd046a976b48750d7de5,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4e7a3a9fb92913e47a24c3b78302608c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287eb2acf636cd046a976b48750d7de5, type: 3}
 --- !u!1 &963194225
