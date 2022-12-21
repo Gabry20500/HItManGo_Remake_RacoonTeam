@@ -10,14 +10,12 @@ public class Rock : MonoBehaviour
     private void Awake()
     {
         playerRef = FindObjectOfType<Player>();
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log($"Mannaia la puttana");
             playerRef.ActivateRockState();
 
             foreach (Node node in activableNodes)

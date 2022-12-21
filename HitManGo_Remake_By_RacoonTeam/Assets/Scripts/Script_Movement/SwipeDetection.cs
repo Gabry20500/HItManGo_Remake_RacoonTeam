@@ -68,17 +68,24 @@ public class SwipeDetection : MonoBehaviour
             Physics.Raycast(endRay, out endHit);
 
             Vector3 swipeDir = endHit.point - startHit.point;
+            Debug.DrawLine(startHit.point, endHit.point, Color.red, 5.0f);
             Vector2 swipeDir2D = new Vector2(swipeDir.x, swipeDir.z);
 
             if (startHit.collider != null)
             {
                 if (startHit.collider.CompareTag("Player"))
                 {
-                    OnSwipeDetected(swipeDir2D);
+                    if (OnSwipeDetected != null)
+                    {
+                        OnSwipeDetected(swipeDir2D);
+                    }
                 }
                 else
                 {
-                    OnSwipeDetectedPoints(startPosition,endPosition);
+                    if (OnSwipeDetectedPoints != null)
+                    {
+                        OnSwipeDetectedPoints(startPosition, endPosition);
+                    }
                 }
             }
         }

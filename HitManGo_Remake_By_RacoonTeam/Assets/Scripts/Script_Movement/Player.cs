@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
     public void ActivateRockState()
     {
         rockState = true;
+        swipeDetecter.OnSwipeDetected -= Move;
         canMove = false;
     }
     
