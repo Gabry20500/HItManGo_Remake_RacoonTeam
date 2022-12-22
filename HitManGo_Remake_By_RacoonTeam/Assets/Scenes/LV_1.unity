@@ -171,7 +171,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d02e78f264eb734db49f445a6715217,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.8
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d02e78f264eb734db49f445a6715217,
         type: 3}
@@ -1155,6 +1155,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalNode
       objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9094448
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7107918363330266946, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1178,7 +1193,7 @@ PrefabInstance:
     - target: {fileID: 7107918363330266946, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55
+      value: 45.8
       objectReference: {fileID: 0}
     - target: {fileID: 7107918363330266946, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}

@@ -2035,6 +2035,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalNode
       objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9167996
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7107918363330266946, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
       propertyPath: m_RootOrder
