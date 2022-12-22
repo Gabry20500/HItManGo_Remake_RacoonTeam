@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 22c6a2bbb773df94b8d46c0e09181d76,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.1972337
+      value: 9.129706
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22c6a2bbb773df94b8d46c0e09181d76,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.1972337
+      value: 9.129706
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22c6a2bbb773df94b8d46c0e09181d76,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.1972337
+      value: 9.129706
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22c6a2bbb773df94b8d46c0e09181d76,
         type: 3}
@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22c6a2bbb773df94b8d46c0e09181d76,
         type: 3}
       propertyPath: m_Name
-      value: ms_oil_barrel
+      value: ms_oil_barrel Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c6a2bbb773df94b8d46c0e09181d76, type: 3}

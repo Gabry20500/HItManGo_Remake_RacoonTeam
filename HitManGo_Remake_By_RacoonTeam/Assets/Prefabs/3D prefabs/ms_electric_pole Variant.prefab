@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e800aecf05ba0564eb7caaf0e9cb2df0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.197234
+      value: 9.782475
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e800aecf05ba0564eb7caaf0e9cb2df0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.197234
+      value: 9.782475
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e800aecf05ba0564eb7caaf0e9cb2df0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.197234
+      value: 9.782475
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e800aecf05ba0564eb7caaf0e9cb2df0,
         type: 3}
@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e800aecf05ba0564eb7caaf0e9cb2df0,
         type: 3}
       propertyPath: m_Name
-      value: ms_electric_pole
+      value: ms_electric_pole Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e800aecf05ba0564eb7caaf0e9cb2df0, type: 3}
