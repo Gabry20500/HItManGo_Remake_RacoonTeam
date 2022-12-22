@@ -37,7 +37,7 @@ public class FlyingRock : MonoBehaviour
         yield return null;
         Quaternion rotation = new Quaternion(0, 0, 0, 0);
         
-        GameObject g =  Instantiate(triggerPlaneObj,new Vector3(endPos.x, endPos.y - 5, endPos.z), rotation);
+        GameObject g =  Instantiate(triggerPlaneObj,new Vector3(endPos.x, endPos.y , endPos.z), rotation);
         g.GetComponent<TriggerPlane>().Init(throwDestination);
         
         Destroy(gameObject);

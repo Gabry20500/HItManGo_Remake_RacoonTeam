@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            musicPlayer.GetComponent<AudioSource>().volume = 1.0f;
+            musicPlayer.GetComponent<AudioSource>().volume = 0.25f;
         }
     }
 }

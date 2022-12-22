@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 8787247590205115572, guid: 5e9aede70142db1468082e834ce77233,
         type: 3}
       propertyPath: m_Name
-      value: LevelPawn
+      value: LevelPawn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8787247590205115573, guid: 5e9aede70142db1468082e834ce77233,
         type: 3}
