@@ -16,5 +16,6 @@ public class ClickablePlane : MonoBehaviour
     public void Unlock()
     {
         unlocked = true;
+        this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
