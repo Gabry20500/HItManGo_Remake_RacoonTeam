@@ -2063,7 +2063,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1552226359624428996, guid: 2554217b55c4d6642a7648f7cfce189d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2554217b55c4d6642a7648f7cfce189d, type: 3}
 --- !u!1001 &1364690547
 PrefabInstance:
@@ -3093,6 +3094,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FinalNode
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.90161717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103268838766790296, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7107918363330266946, guid: 3680ce0a54ddbcc4698dc06c7b225f5a,
         type: 3}
