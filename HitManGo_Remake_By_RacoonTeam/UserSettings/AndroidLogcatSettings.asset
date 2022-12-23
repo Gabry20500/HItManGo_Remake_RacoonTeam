@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "P11278002713",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "P11278002713",
+        "name": "com.RacoonTeam.DoomsDayGO",
+        "processId": 13646,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,18 @@
             "deviceId": "P11278002713",
             "name": "com.unity3d.mobileremote",
             "processId": 21927,
+            "exited": false
+        },
+        {
+            "deviceId": "P11278002713",
+            "name": "com.RacoonTeam.DoomsDayGO",
+            "processId": 11867,
+            "exited": false
+        },
+        {
+            "deviceId": "P11278002713",
+            "name": "com.RacoonTeam.DoomsDayGO",
+            "processId": 13646,
             "exited": false
         }
     ],
