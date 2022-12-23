@@ -96,4 +96,9 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(time);
     }
+
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
